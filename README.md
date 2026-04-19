@@ -71,13 +71,13 @@ openclaw cron add --name "自我进化诊断" \
 | H2 超强记忆 T1-T4 | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/auto-distill/`（T1层） |
 | C1 分层记忆系统 | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/auto-distill/`（T1层） |
 | C5 Coordinator 模式 | ✅ 已完成 | ⭐⭐⭐⭐ | `skills/coordinator/` |
-| H5 思维链连续性 | 🔨 开发中 | ⭐⭐⭐⭐ | `skills/context-compress/` |
-| H3 内置自动反思 | 🔨 开发中 | ⭐⭐⭐ | 整合到 auto-distill |
-| C3 Task Notification | 🔨 开发中 | ⭐⭐⭐ | 整合到 coordinator |
-| C6 并发执行优化 | 🔨 开发中 | ⭐⭐⭐ | OpenClaw sessions_spawn |
-| H7 LSP 代码智能 | 📋 规划中 | ⭐⭐⭐ | 需要 LSP 服务器 |
-| C2 Priority Queue | 📋 规划中 | ⭐⭐⭐ | Task Registry 后续 |
-| C4 Task Registry | 📋 规划中 | ⭐⭐⭐ | 任务注册表 |
+| H5 思维链连续性 | ✅ 已完成 | ⭐⭐⭐⭐ | `skills/context-compress/` |
+| H7 LSP 代码智能 | ✅ 已完成 | ⭐⭐⭐ | `skills/lsp-client/` |
+| H3 内置自动反思 | ✅ 已完成 | ⭐⭐⭐ | `skills/auto-reflection/` |
+| C3 Task Notification | ✅ 已完成 | ⭐⭐⭐ | `skills/auto-reflection/` |
+| C6 并发执行优化 | ✅ 已完成 | ⭐⭐⭐ | `skills/auto-reflection/` |
+| C2 Priority Queue | 📋 规划中 | ⭐⭐⭐ | 低优先级 |
+| C4 Task Registry | 📋 规划中 | ⭐⭐⭐ | 低优先级 |
 | H6 NVIDIA 向量检索 | 📋 规划中 | ⭐⭐ | 需 GPU 基础设施 |
 | H4 Iteration Budget Refund | ❌ 搁置 | ⭐ | 价值不清晰 |
 
