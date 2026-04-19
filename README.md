@@ -3,7 +3,7 @@
 
 > 让 OpenClaw 融合 Hermes-agent 和 Claude Code 的核心能力
 
-[![Stars](https://img.shields.io/github/stars/YOUR_USERNAME/openclaw-hybrid-evolution)](https://github.com/YOUR_USERNAME/openclaw-hybrid-evolution)
+[![Stars](https://img.shields.io/github/stars/olveww-dot/openclaw-hermes-claude)](https://github.com/olveww-dot/openclaw-hermes-claude)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -26,8 +26,13 @@
 ```
 docs/
 ├── 13-items-analysis.md    # 13项功能详细分析
-├── setup-guide.md          # 快速入门指南
+├── implementation-guide.md  # 6个高优先级功能实施方案
 └── roadmap.md             # 实施路线图
+
+skills/
+├── crash-snapshots/        # H1 崩溃防护备份
+├── auto-distill/           # H2/C1 自动记忆蒸馏
+└── coordinator/           # C5 指挥官模式
 ```
 
 ---
@@ -37,11 +42,14 @@ docs/
 ### 1. 安装基础进化包
 
 ```bash
-# 安装自我进化 Skill
-openclaw skills install manager-self-evolution
-
-# 安装自动备份 Skill（开发中）
+# 安装崩溃防护 Skill
 openclaw skills install crash-snapshots
+
+# 安装自动记忆蒸馏 Skill
+openclaw skills install auto-distill
+
+# 安装 Coordinator 指挥官模式
+openclaw skills install coordinator
 ```
 
 ### 2. 配置定时自检
@@ -57,27 +65,60 @@ openclaw cron add --name "自我进化诊断" \
 
 ## 📋 13项功能进度
 
-| 功能 | 状态 | 优先级 |
-|------|------|--------|
-| H1 Crash-Resistant Snapshots | 🔨 开发中 | ⭐⭐⭐⭐⭐ |
-| H2 超强记忆 T1-T4 | 📋 规划中 | ⭐⭐⭐⭐⭐ |
-| H3 内置自动反思 | ✅ 已配置 | ⭐⭐⭐ |
-| H4 Iteration Budget Refund | ❌ 搁置 | ⭐ |
-| H5 思维链连续性 | 📋 规划中 | ⭐⭐⭐⭐ |
-| H6 NVIDIA 向量检索 | 📋 规划中 | ⭐⭐ |
-| H7 LSP 代码智能 | 📋 规划中 | ⭐⭐⭐ |
-| C1 分层记忆系统 | 📋 规划中 | ⭐⭐⭐⭐⭐ |
-| C2 Priority Queue | 📋 规划中 | ⭐⭐⭐ |
-| C3 Task Notification | 📋 规划中 | ⭐⭐⭐ |
-| C4 Task Registry | 📋 规划中 | ⭐⭐⭐ |
-| C5 Coordinator 模式 | 📋 规划中 | ⭐⭐⭐⭐ |
-| C6 并发执行优化 | 📋 规划中 | ⭐⭐⭐ |
+| 功能 | 状态 | 优先级 | 说明 |
+|------|------|--------|------|
+| H1 Crash-Resistant Snapshots | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/crash-snapshots/` |
+| H2 超强记忆 T1-T4 | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/auto-distill/`（T1层） |
+| C1 分层记忆系统 | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/auto-distill/`（T1层） |
+| C5 Coordinator 模式 | ✅ 已完成 | ⭐⭐⭐⭐ | `skills/coordinator/` |
+| H5 思维链连续性 | 🔨 开发中 | ⭐⭐⭐⭐ | `skills/context-compress/` |
+| H3 内置自动反思 | 🔨 开发中 | ⭐⭐⭐ | 整合到 auto-distill |
+| C3 Task Notification | 🔨 开发中 | ⭐⭐⭐ | 整合到 coordinator |
+| C6 并发执行优化 | 🔨 开发中 | ⭐⭐⭐ | OpenClaw sessions_spawn |
+| H7 LSP 代码智能 | 📋 规划中 | ⭐⭐⭐ | 需要 LSP 服务器 |
+| C2 Priority Queue | 📋 规划中 | ⭐⭐⭐ | Task Registry 后续 |
+| C4 Task Registry | 📋 规划中 | ⭐⭐⭐ | 任务注册表 |
+| H6 NVIDIA 向量检索 | 📋 规划中 | ⭐⭐ | 需 GPU 基础设施 |
+| H4 Iteration Budget Refund | ❌ 搁置 | ⭐ | 价值不清晰 |
 
 **状态说明**：
-- ✅ 已完成
-- 🔨 开发中
+- ✅ 已完成（可直接安装使用）
+- 🔨 开发中（子代理运行中）
 - 📋 规划中
 - ❌ 搁置
+
+---
+
+## 🛠️ 已实现的 Skills
+
+### crash-snapshots（H1）
+每次 write/edit 前自动备份原文件，防止误操作导致数据丢失。
+```
+skills/crash-snapshots/
+├── SKILL.md
+├── README.md
+└── src/backup.ts
+```
+
+### auto-distill（H2/C1 T1）
+会话结束后自动调用 LLM 蒸馏对话关键信息，写入 MEMORY.md。
+```
+skills/auto-distill/
+├── SKILL.md
+├── README.md
+└── src/distill.ts
+```
+
+### coordinator（C5）
+主 agent 变成指挥官，只调度不执行，所有工作交给子代理。
+```
+skills/coordinator/
+├── SKILL.md
+├── README.md
+└── src/
+    ├── coordinator-prompt.ts
+    └── worker-prompt.ts
+```
 
 ---
 
