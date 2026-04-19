@@ -1,161 +1,166 @@
-# OpenClaw Hybrid Evolution
-# OpenClaw 混合进化方案
+# OpenClaw Hybrid Evolution | OpenClaw 混合进化方案
 
 > 让 OpenClaw 融合 Hermes-agent 和 Claude Code 的核心能力
+> Bringing Hermes-agent & Claude Code capabilities to OpenClaw
 
 [![Stars](https://img.shields.io/github/stars/olveww-dot/openclaw-hermes-claude)](https://github.com/olveww-dot/openclaw-hermes-claude)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![中文](https://img.shields.io/badge/README-中文-blue.svg)](README.md)
+[![English](https://img.shields.io/badge/README-English-green.svg)](README_EN.md)
 
 ---
 
-## 🎯 项目目标
-
-将 Hermes-agent（10万星）和 Claude Code 的核心功能移植到 OpenClaw，让每个 OpenClaw 用户都能免费获得：
-
-- 🛡️ 崩溃防护（Crash-Resistant Snapshots）
-- 🧠 四层记忆系统（Memory T1-T4）
-- 🔄 自动反思机制（Auto-Reflection）
-- 🎯 Coordinator 指挥官模式
-- 💡 思维链连续性
-- 🔍 LSP 代码智能
+[English](#english-section) | [中文](#中文-section)
 
 ---
 
-## 📚 文档结构
+## 🎯 Project Goals | 项目目标
+
+### English
+This project ports the core capabilities of **Hermes-agent** (100K stars) and **Claude Code** to OpenClaw, making advanced AI agent features freely available to all OpenClaw users.
+
+### 中文
+将 **Hermes-agent**（10万星）和 **Claude Code** 的核心功能移植到 OpenClaw，让每个 OpenClaw 用户都能免费获得高级 AI Agent 能力。
+
+Features included | 功能包括：
+- 🛡️ Crash-Resistant Snapshots | 崩溃防护
+- 🧠 Four-Layer Memory System (T1-T4) | 四层记忆系统
+- 🔄 Auto-Reflection | 自动反思
+- 🎯 Coordinator Mode | 指挥官模式
+- 💡 Continuous Thought Chains | 思维链连续性
+- 🔍 LSP Code Intelligence | LSP 代码智能
+
+---
+
+## 📂 Project Structure | 项目结构
 
 ```
 docs/
-├── 13-items-analysis.md    # 13项功能详细分析
-├── implementation-guide.md  # 6个高优先级功能实施方案
-└── roadmap.md             # 实施路线图
+├── 13-items-analysis.md      # 13项功能详细分析 | Detailed analysis
+├── implementation-guide.md    # 实施方案 | Implementation guide
+└── roadmap.md               # 路线图 | Roadmap
 
 skills/
-├── crash-snapshots/        # H1 崩溃防护备份
-├── auto-distill/           # H2/C1 自动记忆蒸馏
-└── coordinator/           # C5 指挥官模式
+├── crash-snapshots/         # H1 崩溃防护 | Crash protection
+├── auto-distill/            # H2/C1 自动记忆蒸馏 | Auto memory distill
+├── coordinator/             # C5 指挥官模式 | Coordinator mode
+├── context-compress/        # H5 思维链连续性 | Thought chain
+├── lsp-client/             # H7 LSP代码智能 | LSP code intelligence
+└── auto-reflection/         # C3/C6/H3 自动反思 | Auto reflection
 ```
 
 ---
 
-## 🚀 快速开始
+## 🚀 Quick Start | 快速开始
 
-### 1. 安装基础进化包
-
+### English
 ```bash
-# 安装崩溃防护 Skill
+# Install skills | 安装技能
 openclaw skills install crash-snapshots
-
-# 安装自动记忆蒸馏 Skill
 openclaw skills install auto-distill
-
-# 安装 Coordinator 指挥官模式
 openclaw skills install coordinator
-```
 
-### 2. 配置定时自检
-
-```bash
-# 设置每4小时自动运行自我诊断
-openclaw cron add --name "自我进化诊断" \
+# Configure auto-check every 4 hours | 设置每4小时自动检查
+openclaw cron add --name "self-evolution" \
   --schedule "0 */4 * * *" \
   --task "python3 skills/manager-self-evolution/self-check.py diagnose"
 ```
 
----
-
-## 📋 13项功能进度
-
-| 功能 | 状态 | 优先级 | 说明 |
-|------|------|--------|------|
-| H1 Crash-Resistant Snapshots | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/crash-snapshots/` |
-| H2 超强记忆 T1-T4 | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/auto-distill/`（T1层） |
-| C1 分层记忆系统 | ✅ 已完成 | ⭐⭐⭐⭐⭐ | `skills/auto-distill/`（T1层） |
-| C5 Coordinator 模式 | ✅ 已完成 | ⭐⭐⭐⭐ | `skills/coordinator/` |
-| H5 思维链连续性 | ✅ 已完成 | ⭐⭐⭐⭐ | `skills/context-compress/` |
-| H7 LSP 代码智能 | ✅ 已完成 | ⭐⭐⭐ | `skills/lsp-client/` |
-| H3 内置自动反思 | ✅ 已完成 | ⭐⭐⭐ | `skills/auto-reflection/` |
-| C3 Task Notification | ✅ 已完成 | ⭐⭐⭐ | `skills/auto-reflection/` |
-| C6 并发执行优化 | ✅ 已完成 | ⭐⭐⭐ | `skills/auto-reflection/` |
-| C2 Priority Queue | 📋 规划中 | ⭐⭐⭐ | 低优先级 |
-| C4 Task Registry | 📋 规划中 | ⭐⭐⭐ | 低优先级 |
-| H6 NVIDIA 向量检索 | 📋 规划中 | ⭐⭐ | 需 GPU 基础设施 |
-| H4 Iteration Budget Refund | ❌ 搁置 | ⭐ | 价值不清晰 |
-
-**状态说明**：
-- ✅ 已完成（可直接安装使用）
-- 🔨 开发中（子代理运行中）
-- 📋 规划中
-- ❌ 搁置
-
----
-
-## 🛠️ 已实现的 Skills
-
-### crash-snapshots（H1）
-每次 write/edit 前自动备份原文件，防止误操作导致数据丢失。
-```
-skills/crash-snapshots/
-├── SKILL.md
-├── README.md
-└── src/backup.ts
-```
-
-### auto-distill（H2/C1 T1）
-会话结束后自动调用 LLM 蒸馏对话关键信息，写入 MEMORY.md。
-```
-skills/auto-distill/
-├── SKILL.md
-├── README.md
-└── src/distill.ts
-```
-
-### coordinator（C5）
-主 agent 变成指挥官，只调度不执行，所有工作交给子代理。
-```
-skills/coordinator/
-├── SKILL.md
-├── README.md
-└── src/
-    ├── coordinator-prompt.ts
-    └── worker-prompt.ts
+### 中文
+```bash
+# 安装技能
+openclaw skills install crash-snapshots
+openclaw skills install auto-distill
+openclaw skills install coordinator
 ```
 
 ---
 
-## 🏗️ 技术架构
+## 📋 Progress | 进度
+
+| Feature | 功能 | Status | 状态 | Priority | 优先级 |
+|---------|------|--------|------|----------|------|
+| H1 Crash-Resistant Snapshots | 崩溃防护 | ✅ Done | 已完成 | ⭐⭐⭐⭐⭐ |
+| H2/C1 Four-Layer Memory | 四层记忆 | ✅ Done | 已完成 | ⭐⭐⭐⭐⭐ |
+| C5 Coordinator Mode | 指挥官模式 | ✅ Done | 已完成 | ⭐⭐⭐⭐ |
+| H5 Thought Chain Continuity | 思维链连续性 | ✅ Done | 已完成 | ⭐⭐⭐⭐ |
+| H7 LSP Code Intelligence | LSP代码智能 | ✅ Done | 已完成 | ⭐⭐⭐ |
+| C3/C6/H3 Auto-Reflection | 自动反思 | ✅ Done | 已完成 | ⭐⭐⭐ |
+| C2 Priority Queue | 优先级队列 | 📋 Planned | 规划中 | ⭐⭐⭐ |
+| C4 Task Registry | 任务注册表 | 📋 Planned | 规划中 | ⭐⭐⭐ |
+| H6 NVIDIA Vector Search | 向量检索 | 📋 Planned | 规划中 | ⭐⭐ |
+| H4 Iteration Budget Refund | 迭代预算退回 | ❌ Paused | 搁置 | ⭐ |
+
+**8/13 completed | 已完成 8/13** ✅
+
+---
+
+## 🛠️ Implemented Skills | 已实现的技能
+
+### crash-snapshots (H1)
+Auto-backup files before write/edit operations.
+> 每次 write/edit 前自动备份原文件，防止误操作导致数据丢失。
+
+### auto-distill (H2/C1)
+Auto-distill conversation into MEMORY.md after each session.
+> 会话结束后自动蒸馏对话内容到 MEMORY.md。
+
+### coordinator (C5)
+Main agent becomes Coordinator, delegates all execution to workers.
+> 主 agent 变成指挥官，只调度不执行，所有工作交给子代理。
+
+### context-compress (H5)
+Incremental summarization to prevent thought chain breaks.
+> 增量摘要，防止长对话中思维链断裂。
+
+### lsp-client (H7)
+LSP client for code intelligence (goto definition, find references, hover).
+> LSP 客户端，支持定义跳转、引用查找、悬停提示。
+
+### auto-reflection (C3/C6/H3)
+Auto-log reflections, lessons learned, and subagent notifications.
+> 自动记录反思、经验教训、子代理完成通知。
+
+---
+
+## 🏗️ Architecture | 技术架构
 
 ```
 OpenClaw
-├── Hermes-agent 内核
-│   ├── MemoryProvider 记忆抽象
-│   ├── context_compressor 上下文压缩
-│   └── cron 调度系统
+├── Hermes-agent Kernel | Hermes-agent 内核
+│   ├── MemoryProvider abstraction | 记忆抽象
+│   ├── context_compressor | 上下文压缩
+│   └── cron scheduler | 调度系统
 │
-└── Claude Code 引擎
-    ├── Coordinator 指挥官模式
-    ├── 分层记忆系统
-    ├── Task Registry
-    └── LSP 代码智能
+└── Claude Code Engine | Claude Code 引擎
+    ├── Coordinator mode | 指挥官模式
+    ├── Layered memory | 分层记忆
+    ├── Task Registry | 任务注册
+    └── LSP code intelligence | LSP代码智能
 ```
 
 ---
 
-## 📖 学习资源
+## 📖 Resources | 学习资源
 
-- [Hermes-agent 官方仓库](https://github.com/NousResearch/hermes-agent)（10万星）
-- [Claude Code 架构分析](https://github.com/liuup/claude-code-analysis)
-- [OpenClaw 官方文档](https://docs.openclaw.ai)
-
----
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 PR！
+- [Hermes-agent](https://github.com/NousResearch/hermes-agent) ⭐ 100K
+- [Claude Code Analysis](https://github.com/liuup/claude-code-analysis)
+- [OpenClaw Docs](https://docs.openclaw.ai)
 
 ---
 
-## 📝 许可
+## 🤝 Contributing | 贡献
 
-本项目基于 MIT 许可开源。
+Issues and PRs welcome! | 欢迎提交 Issue 和 PR！
 
-**注意**：本项目参考了 Hermes-agent 和 Claude Code 的设计思想，但实现代码为原创。如需引用相关设计，请注明来源。
+---
+
+## 📝 License | 许可
+
+MIT License | MIT 许可
+
+**Note | 注意**: This project references design ideas from Hermes-agent and Claude Code. Implementation code is original. | 本项目参考了 Hermes-agent 和 Claude Code 的设计思想，实现代码为原创。
+
+---
+
+*This README is bilingual Chinese/English | 本 README 为中英双语版*
