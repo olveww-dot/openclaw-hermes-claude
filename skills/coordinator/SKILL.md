@@ -1,14 +1,29 @@
 # Coordinator Mode Skill
 
 **Skill Name:** coordinator
-**Version:** 1.0.0
-**Trigger:** Manual activation — say "进入协调模式" or "启用 coordinator"
+**Version:** 1.1.0
+**Trigger:** Manual activation
 
 ## Overview
 
 Turns the main agent into a **Coordinator** — a commander that only dispatches tasks, never executes them directly. All execution is delegated to Worker subagents. Results flow back via `<task-notification>` messages.
 
-This is inspired by Claude Code's C5 Coordinator mode (`COORDINATOR_MODE`).
+## 一键安装
+
+```bash
+cd ~/.openclaw/workspace/skills/coordinator
+bash install.sh
+```
+
+安装后激活 Coordinator 模式：
+
+```bash
+# 方式1: 运行激活脚本（查看并复制 prompt 到 session）
+bash ~/.openclaw/workspace/skills/coordinator/scripts/activate-coordinator.sh
+
+# 方式2: 直接对 EC 说
+进入协调模式
+```
 
 ## How It Works
 
@@ -20,12 +35,6 @@ When activated, the agent's system prompt is replaced with the Coordinator promp
 4. **Wait** for `<task-notification>` results
 5. **Synthesize** and report to user
 
-**Workers** are spawned via the `spawn` tool with `subagent_type: "worker"`. They receive a limited toolset and a focused task prompt.
-
-## Activation
-
-To activate: load this skill's system prompt override into the session context.
-
 ## Tool Set (Coordinator)
 
 Only these tools are available in Coordinator mode:
@@ -34,52 +43,9 @@ Only these tools are available in Coordinator mode:
 |------|---------|
 | `spawn` / `sessions_spawn` | Launch a Worker subagent |
 | `message` (send) | Continue an existing Worker |
-| `task_notification` | (receive only) Worker results |
 | `sessions_yield` | End turn and wait for results |
 
 **Coordinator never calls tools directly to do work. Only to dispatch.**
-
-## Tool Set (Worker)
-
-Workers get a constrained tool context:
-
-- `exec` — run shell commands
-- `read` — read files
-- `write` / `edit` — write/edit files
-- `web_fetch` / `browser` — web access
-- Subagent-specific tools as needed
-
-## Prompt Files
-
-- `src/coordinator-prompt.ts` — Coordinator system prompt (drop-in override)
-- `src/worker-prompt.ts` — Worker agent prompt template
-
-## Usage
-
-### Activating Coordinator Mode
-
-```
-User: 进入协调模式
-→ Agent loads coordinator-prompt.ts as system override
-→ Now operates as Coordinator
-```
-
-### Dispatching a Task
-
-```
-User: 帮我研究一下这个代码库，然后写测试
-
-Coordinator:
-1. 分析任务：研究(code inspection) + 写测试(implementation)
-2. Spawn workers:
-   - Worker-A: 研究代码库，报告结构
-   - Worker-B: (等待研究结果后) 写测试
-3. 汇总结果给用户
-```
-
-### Worker Result Flow
-
-Workers complete → `<task-notification>` arrives as a message → Coordinator synthesizes and continues or reports.
 
 ## Key Principles
 
@@ -93,9 +59,18 @@ Workers complete → `<task-notification>` arrives as a message → Coordinator 
 
 ```
 coordinator/
-├── SKILL.md              ← This file
-├── README.md             ← User-facing install guide
+├── SKILL.md                   ← This file
+├── README.md                  ← User-facing guide
+├── install.sh                 ← 一键安装脚本
+├── scripts/
+│   └── activate-coordinator.sh ← 激活脚本
 └── src/
     ├── coordinator-prompt.ts  ← Coordinator system prompt
-    └── worker-prompt.ts       ← Worker agent prompt
+    └── worker-prompt.ts       ← Worker agent prompt template
+```
+
+## 重新安装 / 更新
+
+```bash
+bash ~/.openclaw/workspace/skills/coordinator/install.sh
 ```

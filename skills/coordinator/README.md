@@ -2,22 +2,25 @@
 
 将主 Agent 变成**指挥官**，只调度任务，不亲自执行。所有工作交给 Worker 子代理完成。
 
-## 安装
+## 安装（一键）
 
 ```bash
-# 技能已安装到 ~/.openclaw/workspace/skills/coordinator/
-ls ~/.openclaw/workspace/skills/coordinator/
+cd ~/.openclaw/workspace/skills/coordinator
+bash install.sh
 ```
 
 ## 激活方式
 
-对 EC 说：
-
+### 方式1: 对 EC 说
 ```
 进入协调模式
 ```
 
-EC 会加载 `src/coordinator-prompt.ts` 作为 system prompt 覆盖，进入 Coordinator 模式。
+### 方式2: 运行激活脚本
+```bash
+bash ~/.openclaw/workspace/skills/coordinator/scripts/activate-coordinator.sh
+```
+脚本会输出完整的 Coordinator system prompt，复制替换当前 session 的 system prompt 即可。
 
 ## 工作原理
 
@@ -78,49 +81,18 @@ Coordinator:
 coordinator/
 ├── SKILL.md                   ← Skill 定义
 ├── README.md                  ← 本文档
+├── install.sh                 ← 一键安装脚本
+├── scripts/
+│   └── activate-coordinator.sh ← 激活脚本
 └── src/
     ├── coordinator-prompt.ts ← Coordinator system prompt
     └── worker-prompt.ts       ← Worker prompt 模板
 ```
 
-## 文件说明
-
-### `src/coordinator-prompt.ts`
-
-完整的 Coordinator system prompt，包含：
-- 角色定义
-- 核心原则（不感谢、不预测、并行、综合）
-- `<task-notification>` 格式说明
-- Spawn/Continue 的使用指南
-- 反模式警告
-
-### `src/worker-prompt.ts`
-
-Worker 的 base prompt，包含：
-- 角色定义
-- 执行规则
-- 报告格式
-- 辅助函数 `createWorkerPrompt(task, context)`
-
-## 与 Claude Code Coordinator 的区别
-
-| 特性 | Claude Code | OpenClaw Skill |
-|------|-------------|----------------|
-| 激活方式 | `export CLAUDE_CODE_COORDINATOR_MODE=1` | 说"进入协调模式" |
-| Worker 类型 | `subagent_type: "worker"` | 同 |
-| 结果格式 | `<task-notification>` | 同 |
-| 工具限制 | 环境变量控制 | system prompt 约束 |
-| 状态切换 | env var 切换 | prompt 覆盖 |
-
-## 自定义
-
-修改 Worker 可用工具：在 `worker-prompt.ts` 的 `WORKER_BASE_PROMPT` 中增删工具描述。
-
-修改 Coordinator 行为：编辑 `coordinator-prompt.ts` 中的 `COORDINATOR_PROMPT`。
-
 ## 同步到 GitHub
 
 ```bash
-cp -r ~/.openclaw/workspace/skills/coordinator ~/research/openclaw-hermes-claude/skills/
-cd ~/research/openclaw-hermes-claude && git add skills/coordinator/ && git commit -m "feat: add coordinator skill"
+cd ~/research/openclaw-hermes-claude
+cp -r ~/.openclaw/workspace/skills/coordinator skills/
+git add skills/coordinator/ && git commit -m "feat: coordinator skill"
 ```
