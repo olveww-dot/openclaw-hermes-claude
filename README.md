@@ -151,6 +151,8 @@ OpenClaw
 
 ## 🤝 Contributing | 贡献
 
+Built by **EC** | 由 **EC** 创建
+
 Issues and PRs welcome! | 欢迎提交 Issue 和 PR！
 
 ---
