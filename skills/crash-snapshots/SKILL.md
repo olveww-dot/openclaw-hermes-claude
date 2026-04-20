@@ -7,6 +7,10 @@ version: "1.0.0"
 
 # Crash-Resistant Snapshots
 
+> 🛡️ **OpenClaw 混合进化方案** — 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+
+
 > 🛡️ 写文件前自动备份，崩溃也不怕。
 
 ## 这个 Skill 做什么？
@@ -96,6 +100,22 @@ Usage: backup.ts <file1> [file2] ...
 - 备份是**额外保险**，不等于版本控制
 - 建议同时使用 Git 进行真正的版本控制
 - 备份文件多了记得定期清理
+
+## 🧩 配套技能
+
+本 skill 是 **OpenClaw 混合进化方案** 的一部分：
+
+> 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+🔗 GitHub 项目：[olveww-dot/openclaw-hermes-claude](https://github.com/olveww-dot/openclaw-hermes-claude)
+
+完整技能套件（6个）：
+- 🛡️ **crash-snapshots** — 崩溃防护（本文）
+- 🧠 **auto-distill** — T1 自动记忆蒸馏
+- 🎯 **coordinator** — 指挥官模式
+- 💡 **context-compress** — 思维链连续性
+- 🔍 **lsp-client** — LSP 代码智能
+- 🔄 **auto-reflection** — 自动反思
 
 ## 版本历史
 

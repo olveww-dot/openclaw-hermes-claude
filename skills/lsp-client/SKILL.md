@@ -1,5 +1,9 @@
 # LSP Client Skill
 
+> 🛡️ **OpenClaw 混合进化方案** — 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+
+
 **Skill Name:** lsp-client
 
 **Description:** Provides code intelligence (goto definition, find references, hover, document symbols) by connecting to external LSP servers via stdio.
@@ -80,3 +84,21 @@ protocol.ts        — LSP protocol type definitions
 - Requires external LSP servers to be installed
 - Servers communicate via stdio (not sockets)
 - Only supports one server per file extension
+
+## 🧩 配套技能
+
+本 skill 是 **OpenClaw 混合进化方案** 的一部分：
+
+> 将 [Hermesagent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+> 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+🔗 GitHub 项目：[olveww-dot/openclaw-hermes-claude](https://github.com/olveww-dot/openclaw-hermes-claude)
+
+完整技能套件（6个）：
+- 🛡️ **crash-snapshots** — 崩溃防护
+- 🧠 **auto-distill** — T1 自动记忆蒸馏
+- 🎯 **coordinator** — 指挥官模式
+- 💡 **context-compress** — 思维链连续性
+- 🔍 **lsp-client** — LSP 代码智能（本文）
+- 🔄 **auto-reflection** — 自动反思

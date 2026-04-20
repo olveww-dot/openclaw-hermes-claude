@@ -1,5 +1,9 @@
 # Auto-Reflection Skill
 
+> 🛡️ **OpenClaw 混合进化方案** — 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+
+
 **Name:** auto-reflection
 **Category:** infrastructure
 **Version:** 1.1.0
@@ -70,3 +74,21 @@ auto-reflection/
     ├── reflection-logger.ts    ← 记录反思条目
     └── lesson-generator.ts     ← 从错误提炼经验
 ```
+
+## 🧩 配套技能
+
+本 skill 是 **OpenClaw 混合进化方案** 的一部分：
+
+> 将 [Hermesagent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+> 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+🔗 GitHub 项目：[olveww-dot/openclaw-hermes-claude](https://github.com/olveww-dot/openclaw-hermes-claude)
+
+完整技能套件（6个）：
+- 🛡️ **crash-snapshots** — 崩溃防护
+- 🧠 **auto-distill** — T1 自动记忆蒸馏
+- 🎯 **coordinator** — 指挥官模式
+- 💡 **context-compress** — 思维链连续性
+- 🔍 **lsp-client** — LSP 代码智能
+- 🔄 **auto-reflection** — 自动反思（本文）

@@ -1,5 +1,9 @@
 # LSP Client Skill
 
+> 🛡️ **OpenClaw 混合进化方案** — 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+
+
 **Skill Name:** lsp-client
 
 **Description:** Provides code intelligence (goto definition, find references, hover, document symbols) by connecting to external LSP servers via stdio.

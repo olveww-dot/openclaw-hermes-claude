@@ -1,5 +1,9 @@
 # auto-distill
 
+> 🛡️ **OpenClaw 混合进化方案** — 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+
+
 **T1: Auto Memory** — 会话结束后自动 distill 对话内容到 MEMORY.md
 
 ## 触发方式
@@ -55,6 +59,24 @@ npx ts-node ~/.openclaw/workspace/skills/auto-distill/src/distill.ts
 - Node.js ≥ 18
 - SiliconFlow API Key（通过 `SILICONFLOW_API_KEY` 环境变量）
 - 当前会话 JSON 文件路径（通过 `OPENCLAW_SESSION_JSON` 环境变量传入）
+
+## 🧩 配套技能
+
+本 skill 是 **OpenClaw 混合进化方案** 的一部分：
+
+> 将 [Hermesagent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+> 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
+
+🔗 GitHub 项目：[olveww-dot/openclaw-hermes-claude](https://github.com/olveww-dot/openclaw-hermes-claude)
+
+完整技能套件（6个）：
+- 🛡️ **crash-snapshots** — 崩溃防护
+- 🧠 **auto-distill** — T1 自动记忆蒸馏（本文）
+- 🎯 **coordinator** — 指挥官模式
+- 💡 **context-compress** — 思维链连续性
+- 🔍 **lsp-client** — LSP 代码智能
+- 🔄 **auto-reflection** — 自动反思
 
 ## 环境变量
 
