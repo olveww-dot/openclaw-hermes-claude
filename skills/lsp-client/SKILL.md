@@ -12,6 +12,12 @@
 
 ---
 
+## 🚀 一键安装
+
+```bash
+mkdir -p ~/.openclaw/skills && cd ~/.openclaw/skills && curl -fsSL https://github.com/olveww-dot/openclaw-hermes-claude/archive/main.tar.gz | tar xz && cp -r openclaw-hermes-claude-main/skills/hermes-lsp-client . && rm -rf openclaw-hermes-claude-main && echo "✅ lsp-client 安装成功"
+```
+
 ## What This Skill Does
 
 This skill acts as an **LSP client** that communicates with external Language Server Protocol (LSP) servers. LSP is the protocol VSCode uses for code intelligence — this skill gives OpenClaw the same capabilities.

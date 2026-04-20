@@ -8,6 +8,12 @@
 **Version:** 1.1.0
 **Trigger:** Manual activation
 
+## 🚀 一键安装
+
+```bash
+mkdir -p ~/.openclaw/skills && cd ~/.openclaw/skills && curl -fsSL https://github.com/olveww-dot/openclaw-hermes-claude/archive/main.tar.gz | tar xz && cp -r openclaw-hermes-claude-main/skills/hermes-coordinator . && rm -rf openclaw-hermes-claude-main && echo "✅ coordinator 安装成功"
+```
+
 ## Overview
 
 Turns the main agent into a **Coordinator** — a commander that only dispatches tasks, never executes them directly. All execution is delegated to Worker subagents. Results flow back via `<task-notification>` messages.

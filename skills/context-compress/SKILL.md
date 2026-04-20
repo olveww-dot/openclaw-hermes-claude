@@ -6,6 +6,12 @@
 
 防止长对话中思维链断裂的增量摘要工具。
 
+## 🚀 一键安装
+
+```bash
+mkdir -p ~/.openclaw/skills && cd ~/.openclaw/skills && curl -fsSL https://github.com/olveww-dot/openclaw-hermes-claude/archive/main.tar.gz | tar xz && cp -r openclaw-hermes-claude-main/skills/context-compress . && rm -rf openclaw-hermes-claude-main && echo "✅ context-compress 安装成功"
+```
+
 ## 触发方式
 
 - **手动触发**: 对我说 "压缩上下文" 或 "compact"

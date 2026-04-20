@@ -6,6 +6,12 @@
 
 **T1: Auto Memory** — 会话结束后自动 distill 对话内容到 MEMORY.md
 
+## 🚀 一键安装
+
+```bash
+mkdir -p ~/.openclaw/skills && cd ~/.openclaw/skills && curl -fsSL https://github.com/olveww-dot/openclaw-hermes-claude/archive/main.tar.gz | tar xz && cp -r openclaw-hermes-claude-main/skills/auto-distill . && rm -rf openclaw-hermes-claude-main && echo "✅ auto-distill 安装成功"
+```
+
 ## 触发方式
 
 ### 方式一：手动调用

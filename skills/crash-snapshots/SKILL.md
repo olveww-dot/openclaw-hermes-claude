@@ -26,16 +26,11 @@ version: "1.0.0"
 
 在执行 `write` / `edit` 之前，Agent 会先调用 `backup.ts` 备份原文件。
 
-## 安装
+## 🚀 一键安装
 
 ```bash
-# 技能已安装在：
-# ~/.openclaw/workspace/skills/crash-snapshots/
-
-# 可选：复制到全局 skills 目录（所有 workspace 共享）
-cp -r ~/.openclaw/workspace/skills/crash-snapshots ~/.openclaw/skills/
+mkdir -p ~/.openclaw/skills && cd ~/.openclaw/skills && curl -fsSL https://github.com/olveww-dot/openclaw-hermes-claude/archive/main.tar.gz | tar xz && cp -r openclaw-hermes-claude-main/skills/crash-snapshots . && rm -rf openclaw-hermes-claude-main && echo "✅ crash-snapshots 安装成功"
 ```
-
 ## 使用方式
 
 ### 方式一：作为 OpenClaw Skill 直接调用

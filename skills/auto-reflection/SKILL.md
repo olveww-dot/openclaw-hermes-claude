@@ -10,6 +10,12 @@
 
 ---
 
+## 🚀 一键安装
+
+```bash
+mkdir -p ~/.openclaw/skills && cd ~/.openclaw/skills && curl -fsSL https://github.com/olveww-dot/openclaw-hermes-claude/archive/main.tar.gz | tar xz && cp -r openclaw-hermes-claude-main/skills/hermes-auto-reflection . && rm -rf openclaw-hermes-claude-main && echo "✅ auto-reflection 安装成功"
+```
+
 ## 概述
 
 自动反思系统，整合三个能力：
