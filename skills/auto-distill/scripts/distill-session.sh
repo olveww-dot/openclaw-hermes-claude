@@ -24,7 +24,7 @@ if [ -f "$CONFIG_FILE" ]; then
   [ -n "$MEM_FROM_CFG" ] && MEMORY_PATH="$MEM_FROM_CFG"
 fi
 
-SILICONFLOW_API_KEY="${SILICONFLOW_API_KEY:-sk-cp-2nm48iYywu6lfibn8wAH8g6h4EYTffEaPGQmPo4WA2Y3ByiX1eJrp5eu6EExhvYYt6SwT0NAzPR5vdYTbn50421vojSNeQO4P1fPEmUsU8jXVO1NQYYqQZY}"
+SILICONFLOW_API_KEY="${SILICONFLOW_API_KEY:-sk-kgvvlyeudlzineosmoydxgpkmnulaftixfnfnyowcjwvvdzs}"
 
 echo "[auto-distill] 开始 distill..."
 
@@ -43,7 +43,7 @@ if not input_text or len(input_text) < 10:
 
 print(f'[auto-distill] 读取到 {len(input_text)} 字符')
 
-api_key = os.environ.get('SILICONFLOW_API_KEY','sk-cp-2nm48iYywu6lfibn8wAH8g6h4EYTffEaPGQmPo4WA2Y3ByiX1eJrp5eu6EExhvYYt6SwT0NAzPR5vdYTbn50421vojSNeQO4P1fPEmUsU8jXVO1NQYYqQZY')
+api_key = os.environ.get('SILICONFLOW_API_KEY','sk-kgvvlyeudlzineosmoydxgpkmnulaftixfnfnyowcjwvvdzs')
 today = dt.now().strftime('%Y-%m-%d')
 
 prompt = f'''你是AI助手的记忆整理助手。从以下对话中提炼关键信息，输出结构化的Markdown。

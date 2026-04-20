@@ -1,8 +1,1 @@
-{
-  "siliconflow_api_key": "YOUR_API_KEY_HERE",
-  "memory_path": "~/.openclaw/workspace/MEMORY.md",
-  "session_json": "~/.openclaw/sessions/current/session.json",
-  "reflections_dir": "~/.openclaw/workspace/memory/reflections",
-  "model": "deepseek-ai/DeepSeek-V3",
-  "max_messages": 50
-}
+{"siliconflow_api_key": "YOUR_API_KEY_HERE", "memory_path": "~/.openclaw/workspace/MEMORY.md"}
