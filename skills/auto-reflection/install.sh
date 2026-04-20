@@ -6,9 +6,11 @@ set -e
 
 SKILL_NAME="auto-reflection"
 SRC_DIR="$(cd "$(dirname "$0")" && pwd)"
-WORKSPACE="${OPENCLAW_WORKSPACE:-/Users/ec/.openclaw/workspace}"
+SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
+WORKSPACE="${OPENCLAW_WORKSPACE:-${HOME}/.openclaw/workspace}"
 TARGET_DIR="$WORKSPACE/skills/$SKILL_NAME"
-RESEARCH_DIR="/Users/ec/research/openclaw-hermes-claude/skills/$SKILL_NAME"
+SKILL_TARGET="$SKILL_DIR"
+# RESEARCH_DIR is no longer hardcoded - use SKILL_DIR which is dynamic
 REFLECTIONS_DIR="$WORKSPACE/memory/reflections"
 
 echo "📦 安装 Auto-Reflection Skill..."

@@ -1,10 +1,19 @@
-# auto-distill
+---
+name: auto-distill
+description: "T1: 会话结束后将对话内容提炼到 MEMORY.md。每次会话结束对 EC 说「提炼记忆」即可触发。"
+author: "小呆呆"
+version: "2.0.0"
+---
+
+# Auto Memory Distill
 
 > 🛡️ **OpenClaw 混合进化方案** — 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
 
+**T1: Auto Memory** — 会话结束后提炼对话内容到 MEMORY.md
 
+## 这个 Skill 做什么？
 
-**T1: Auto Memory** — 会话结束后自动 distill 对话内容到 MEMORY.md
+将当前会话的对话内容自动提炼，追加到 `MEMORY.md`，不覆盖已有内容。
 
 ## 🚀 一键安装
 
@@ -14,23 +23,22 @@ mkdir -p ~/.openclaw/skills && cd ~/.openclaw/skills && curl -fsSL https://githu
 
 ## 触发方式
 
-### 方式一：手动调用
+### 方式一：手动触发（最简单）
+```
+EC 说：「提炼记忆」
+小呆呆 执行：bash ~/.openclaw/skills/auto-distill/scripts/distill-session.sh
+```
+
+### 方式二：定时自动（可选）
+设置 cron 任务，每天自动提炼：
 ```bash
-openclaw run auto-distill
-# 或
-npx ts-node ~/.openclaw/workspace/skills/auto-distill/src/distill.ts
+openclaw cron add --name "auto-distill" \
+  --schedule "0 23 * * *" \
+  --command "bash ~/.openclaw/skills/auto-distill/scripts/distill-session.sh"
 ```
 
-### 方式二：Hook 触发（推荐）
-在 `~/.openclaw/config.json` 中添加 session-end hook：
-
-```json
-{
-  "hooks": {
-    "session:end": "openclaw run auto-distill"
-  }
-}
-```
+### 方式三：会话结束时自动触发
+如果 OpenClaw 支持 session compact 钩子，会话压缩前会自动提炼。
 
 ## 工作流程
 
@@ -70,19 +78,15 @@ npx ts-node ~/.openclaw/workspace/skills/auto-distill/src/distill.ts
 
 本 skill 是 **OpenClaw 混合进化方案** 的一部分：
 
-> 将 [Hermesagent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
-
-> 将 [Hermes-agent](https://github.com/NousResearch/hermes-agent)（100K ⭐）+ [Claude Code](https://github.com/liuup/claude-code-analysis) 核心能力移植到 OpenClaw
-
 🔗 GitHub 项目：[olveww-dot/openclaw-hermes-claude](https://github.com/olveww-dot/openclaw-hermes-claude)
 
 完整技能套件（6个）：
 - 🛡️ **crash-snapshots** — 崩溃防护
 - 🧠 **auto-distill** — T1 自动记忆蒸馏（本文）
-- 🎯 **coordinator** — 指挥官模式
+- 🎯 **hermes-coordinator** — 指挥官模式
 - 💡 **context-compress** — 思维链连续性
-- 🔍 **lsp-client** — LSP 代码智能
-- 🔄 **auto-reflection** — 自动反思
+- 🔍 **hermes-lsp-client** — LSP 代码智能
+- 🔄 **hermes-auto-reflection** — 自动反思
 
 ## 环境变量
 

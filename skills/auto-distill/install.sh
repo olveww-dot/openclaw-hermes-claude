@@ -68,7 +68,6 @@ fi
 
 # 检查是否已有 external hooks
 if grep -q '"hooks"' "$OPENCLAW_CONFIG" && grep -q 'auto-distill' "$OPENCLAW_CONFIG"; then
-  echo "      ✓ hook 已注册，跳过"
 else
   # 用 python3 添加 hook（保持 JSON 格式）
   python3 << 'PYEOF'
@@ -94,7 +93,7 @@ if isinstance(hooks_list, str):
     hooks_list = [hooks_list]
 
 # 添加 auto-distill hook（如果不存在）
-hook_cmd = "bash " + os.path.expanduser("~/research/openclaw-hermes-claude/skills/auto-distill/scripts/distill-session.sh")
+hook_cmd = "bash \"" + SCRIPT_DIR + "/scripts/distill-session.sh\""
 if hook_cmd not in hooks_list:
     hooks_list.append(hook_cmd)
 
@@ -103,7 +102,6 @@ config["hooks"]["session:end"] = hooks_list
 with open(config_path, "w") as f:
     json.dump(config, f, indent=2, ensure_ascii=False)
 
-print("      ✓ hook 已注册")
 PYEOF
 fi
 
