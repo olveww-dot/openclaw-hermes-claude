@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "self-evolve": {
+      "version": "1.0.0",
+      "installedAt": 1776733481621
+    },
+    "manager-self-evolution": {
+      "version": "1.0.0",
+      "installedAt": 1776733515311
+    }
+  }
+}
