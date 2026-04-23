@@ -5,3 +5,15 @@ node_modules/
 .DS_Store
 *.log
 .keys/
+
+# 本地备用Skills（不放GitHub）
+skills/apple-notes/
+skills/hailuo-video-generator/
+skills/jimeng-video-gen/
+skills/manager-self-evolution/
+skills/mmx-cli/
+skills/self-evolve/
+skills/openclaw-scrapling/
+
+# 本地工具脚本（不放GitHub）
+scripts/
